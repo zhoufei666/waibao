@@ -1,0 +1,245 @@
+
+.login{
+	width: 80%;
+	height: 600px;
+	overflow: hidden;
+	margin-right: auto;
+	margin-left: auto;
+	background-color: #fff;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	border-radius: 5px;
+	padding-left: 10px; 
+}
+.ad{
+	width: 70%;
+	height: 100%;
+	float: left;	
+	border-radius: 5px;
+}
+.ad-top{
+	height: 54px;
+	text-align: center;
+	line-height: 54px;
+}
+.ad-content{
+	width: 100%;
+	height: 75%;
+	border-radius: 5px;
+}
+.ad-content img{
+	width: 100%;
+	height: 100%;
+	border-radius: 5px;
+}
+.ad-bottom{	
+	height: 60px;
+	background-color: #eee;
+	text-align: center;
+	line-height: 54px;
+	border-radius: 5px;
+}
+.login-form{
+	width: 30%;
+	height: 88%;
+	height: 100%;
+	float: left;
+	padding-top: 6%;
+	padding-bottom: 4%;
+}
+.area{
+	width: 90%;
+	height: 100%;
+	background-color: #eee;
+	margin-left: 5%;
+	margin-right: 5%;
+	border-radius: 10px;
+}	
+.login-tip{
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	background-color: #ccc;
+}		
+.tip-top{
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	padding-left: 10px;
+}
+.tip-top i{
+	margin-top: 10px;
+	display: block;
+	float: left;
+}
+.tip-top span{
+	display: block;
+	float: left;
+	margin-top: 5px;
+}
+.login-title{
+	display: block;
+	width: 90%;
+	margin-left: 5%;		
+	height: 30px;
+	line-height: 30px;
+	margin-top: 10px;
+}
+.login-item{
+	width: 90%;
+	margin-right: 5%;
+	margin-left: 5%;
+	height: 40px;
+	line-height: 40px;
+	border: 0px;
+	border-radius: 5px;
+	padding-left: 5px;
+	/*background-color: #eee;*/
+}
+.login-submit{
+	width: 90%;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	color: #fff;
+	margin-right: 5%;
+	margin-left: 5%;
+	margin-top: 10px;
+	border-radius: 5px;
+	background-color: #00aaee;
+	border: 0px;
+}
+
+.remember{
+	height: 20px;
+	padding-right: 30px;
+	overflow: hidden;
+	margin-top: 10px;
+	margin-left: 14px;
+}
+.remember-check{
+	width: 20px;
+	float: left;
+	height: 14px;
+	display:inline;
+}
+.remember-login{
+	display:inline;
+	width:150px;
+	line-height: 20px;
+	font-size: 12px;
+	float: left;
+	margin-top: 0;
+}
+
+.login-tip-something{
+	width: 100%;
+	height: 20px;
+	margin-top: 10px;
+}
+.login-tip-something a{
+	font-size: 12px;
+}
+.forget-password{	
+	width: 50%;
+	height: 100%;
+	padding-left: 20px;
+	display: inline;
+}
+.no-account{
+	width: 50%;
+	height: 100%;
+	padding-right: 20px;
+	float: right;
+	text-align: right;
+	display: inline;
+}
+
+.third-login{
+	width: 90%;
+	height: 130px;
+	margin-right: 5%;
+	margin-left: 5%;
+	margin-top: 10px;
+	border-radius: 5px;
+}
+.third-login-item{
+	width: 48%;
+	height: 100%;
+	float: left;
+}
+.third-login-item-last{
+	margin-left: 4%;
+}
+.third-login-item img{
+	display: block;
+	width: 100%;
+	height: 80%;
+}
+.third-login-item span{
+	display: block;
+	height: 20%;
+	line-height: 22px;
+	text-align: center;
+}
+.app-ad{
+	display: none;
+}
+
+@media (max-width: 768px) {/*目前只适配iphone5s*/
+	.full-content {
+	    background-color: #fff;
+    	min-height: 390px;
+    	max-height: 410px;
+	}
+	#container{		
+    	min-height: 360px;
+    	max-height: 380px;
+	}
+	.content{
+    	min-height: 360px;
+    	max-height: 380px;
+	}
+    .ad{
+    	display: none;
+    }
+    .login{
+    	width: 100%;
+    	min-height: 360px;
+    	max-height: 380px;
+    	border-radius: 5px;
+    	padding-left: 0;
+    }
+    .login-form{
+    	width: 100%;
+    	min-height: 360px;
+    	max-height: 380px;
+    	padding: 0;
+    }
+    .area{
+    	width: 100%;
+    	min-height: 340px;
+    	max-height: 360px;
+    	margin: 0;
+    }
+    .third-login{
+    	display: none;
+    }
+    .app-ad{
+    	display: block;
+    	width: 100%;
+    	height: 100px;
+    	bottom: 0px;
+    	clear: both;
+
+    	background-color: #f00;    	
+    }
+    .app-ad a{
+    	display: block;
+    	width: 100%;
+    	height: 100px;
+    }
+    .app-ad a img{
+    	width: 100%;
+    	height: 100%;
+    }
+}
