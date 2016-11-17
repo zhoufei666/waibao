@@ -36,10 +36,11 @@ class AdminController extends Controller {
 	public function isLogin(Request $request)
 	{
 		$uid = Session::get('uid'); 
-        
+
         //未登陆跳转页面
         if ($uid === NULL) {
-            return route('login');            
+            return Redirect::route('login');
+            // return route('login');            
             // dd(Redirect::route('login'));
             // return redirect()->back();
             // // return Redirect::route('login');
