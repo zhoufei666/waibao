@@ -1,24 +1,16 @@
 <?php namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
+use App\Http\Requests;
+use Illuminate\Http\Request;
 use Session;
-use Route;
 use Redirect;
 
 class AdminController extends Controller {
 
-    public function __construct()
+    public function __construct(Request $request)
     {
-        //是否登录
-        $uid = $this->isLogin();
-        if (!$uid) {
-            return redirect('/admin/login');
-        }
-
-        // print_r($request->session()->all());//所有session
-        
+        $this->isLogin($request);
     }
 
     //跳转方式：
@@ -41,13 +33,17 @@ class AdminController extends Controller {
      * 判断用户是否登录
      * @param int $uid 用户id
      */
-	public function isLogin()
+	public function isLogin(Request $request)
 	{
-		$uid = Session::get('uid');
-		if ($uid) {
-            return $uid;
-		}else{
-            return false;
+		$uid = Session::get('uid'); 
+        
+        //未登陆跳转页面
+        if ($uid === NULL) {
+            return route('login');            
+            // dd(Redirect::route('login'));
+            // return redirect()->back();
+            // // return Redirect::route('login');
+            // // print_r($request->session()->all());die;
         }
 	}
 

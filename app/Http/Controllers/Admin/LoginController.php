@@ -14,17 +14,11 @@ use App\Http\Controllers\CaptchaController as Captcha;
 
 class LoginController extends AdminController {
 
-	public function __construct()
-	{
-		parent::__construct();
-	}
-
 	/**
 	 * 登录
 	 */
 	public function login(Request $request)
 	{
-		print_r(session::get('uid'));
 		return view('admin/login');
 	}
 

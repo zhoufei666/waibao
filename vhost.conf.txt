@@ -1,0 +1,26 @@
+#允许访问的域名
+<VirtualHost *:80>
+    DocumentRoot D:/www/waibao/public
+    ServerName zhoufei.com
+    ServerAlias zhoufei.com
+    <Directory "D:/www/waibao/public">
+        ##Options Indexes FollowSymLinks
+        ##AllowOverride all
+        Order allow,deny
+        Allow from all
+    </Directory>
+    ##<IfModule mod_rewrite.c>
+        ##RewriteEngine On
+        ##RewriteRule ^(.*)-htm-(.*)$ .php?
+        ##RewriteRule ^(.*)/simple/([a-z0-9\_]+\.html)$ /simple/index.php?
+    ##</IfModule>
+#错误日志保存位置
+    ##ErrorLog "/websit_logs/waibao/log/httpd/error.log"
+    ##CustomLog "/websit_logs/log/httpd/info.log" common
+</VirtualHost>
+
+
+<VirtualHost *:80>
+    DocumentRoot "D:/www"
+    ServerName localhost
+</VirtualHost>
