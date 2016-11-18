@@ -4,6 +4,10 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Auth;
+use Session;
+use Redirect;
+use App\Http\Controllers\Admin\AdminController;
+use Response;
 
 class Authenticate
 {
@@ -17,14 +21,24 @@ class Authenticate
      */
     public function handle($request, Closure $next, $guard = null)
     {
-        if (Auth::guard($guard)->guest()) {
-            if ($request->ajax() || $request->wantsJson()) {
-                return response('Unauthorized.', 401);
-            } else {
-                return redirect()->guest('login');
+        //获取当前的控制器和方法
+        $admin = new AdminController();
+        $currentActin = $admin->getCurrentAction();
+
+        if (strstr($currentActin['controller'],'Admin')){
+
+            //后台
+            if ($currentActin['method'] != 'login'){
+                // 判断用户是否登录--未登陆跳转页面
+                $uid = $admin->isLogin();
+                if ($uid === false) {
+                    return redirect('admin/login');
+                }
             }
+
         }
 
         return $next($request);
     }
+
 }

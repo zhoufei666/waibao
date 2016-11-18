@@ -8,45 +8,55 @@ use Redirect;
 
 class AdminController extends Controller {
 
-    public function __construct(Request $request)
+    public function __construct()
     {
-        $this->isLogin($request);
+        // $this->isLogin($request);
     }
 
-    //跳转方式：
-    //跳转到／home页
-    // return redirect('/home');
-    
-    //登录成功后跳转登录前的那页，但一般我不这么用根据情况使用
-    // return redirect()->back();
-    
-    //成功后登录我想使用的控制器
-    // return redirect()->action('IndexController@index');
-     // Route()->to('login');
-    // Redirect::to('Admin\LoginController@login');
-    // return redirect()->action('Admin\LoginController@login');
-    // return redirect('/');
-    // return redirect()->back();
+    /**  
+     * 获取当前方法名  
+     * @return string  
+     */  
+    public function getCurrentMethodName()  
+    {  
+        return getCurrentAction()['method'];  
+    }
+    /**  
+     * 获取当前控制器与方法  
+     * @return array  
+     */  
+    public function getCurrentAction()  
+    {  
+        $action = \Route::current()->getActionName();  
+        list($class, $method) = explode('@', $action);  
+     
+        return   ['controller' => $class, 'method' => $method];
+    }
 
 
     /**
      * 判断用户是否登录
-     * @param int $uid 用户id
+     * @return bool
      */
-	public function isLogin(Request $request)
-	{
-		$uid = Session::get('uid'); 
+	 public function isLogin()
+	 {
+	 	$uid = Session::get('uid');
+         if ($uid === NULL) {
+             return false;
+         }else{
+             return true;
+         }
+	 }
 
-        //未登陆跳转页面
-        if ($uid === NULL) {
-            return Redirect::route('login');
-            // return route('login');            
-            // dd(Redirect::route('login'));
-            // return redirect()->back();
-            // // return Redirect::route('login');
-            // // print_r($request->session()->all());die;
-        }
-	}
+    // dd(route('login'));
+    // return  redirect(route('login'));
+
+    // return Redirect::route('login');
+    // return route('login');
+    // dd(Redirect::route('login'));
+    // return redirect()->back();
+    // // return Redirect::route('login');
+    // // print_r($request->session()->all());die;
 
 
 	/**

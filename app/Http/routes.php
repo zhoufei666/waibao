@@ -44,10 +44,10 @@ Route::get('/getCaptchaSrc','CaptchaController@getCaptchaSrc');
 Route::get('/verifyCaptcha','CaptchaController@verifyCaptcha');
 
 //后端路由
-Route::group(['prefix'=>'admin','namespace'=>'Admin'],function(){
+Route::group(['prefix'=>'admin','namespace'=>'Admin','middleware' => 'auth'],function(){
 	//登录
 	Route::get('login','LoginController@login')->name('login');
-	Route::post('login','LoginController@handleLgoin');
+	Route::post('doLogin','LoginController@handleLgoin');
 	Route::match(['get', 'post'],'loginout','LoginController@loginOut');
 
 	//初始化超级管理员

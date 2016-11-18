@@ -1,0 +1,9 @@
+/vendor
+.env
+/.idea
+/.project
+/.svn
+/.settigs
+/documentation/.Archive
+/storage/framework/cache/*
+/documentation/*/.Archive

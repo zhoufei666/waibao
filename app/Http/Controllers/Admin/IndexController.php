@@ -11,8 +11,11 @@ use Redirect;
 
 class IndexController extends AdminController
 {
-	function __construct(Request $request)
+	public function __construct(Request $request)
 	{
+		// return false;
+		// exit();
+		
 		parent::__construct($request);
 	}
 	/**
@@ -23,6 +26,7 @@ class IndexController extends AdminController
 	 */
     public function index(Request $request)
     {
+    	// return  redirect(route('login'));
     	return view('admin/Index/index');
     }
 

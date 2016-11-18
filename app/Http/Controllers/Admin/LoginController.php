@@ -12,7 +12,7 @@ use App\Http\Models\admin\userModel;
 use App\Http\Models\Users;
 use App\Http\Controllers\CaptchaController as Captcha;
 
-class LoginController extends AdminController {
+class LoginController extends Controller {
 
 	/**
 	 * 登录
