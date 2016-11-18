@@ -24,7 +24,7 @@
     <div class="middle-box text-center loginscreen  animated fadeInDown">
         <div>
             <div>
-                <h3 class="logo-name"> 外包项目名 </h3>
+                <h3 class="logo-name"> 管理系统 </h3>
             </div>
 
             <h3>欢迎使用 </h3>
