@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Admin\AdminController;
 use Redirect;
+use Cookie;
 
 class IndexController extends AdminController
 {
@@ -26,7 +27,8 @@ class IndexController extends AdminController
 	 */
     public function index(Request $request)
     {
-    	// return  redirect(route('login'));
+    	// dd($_COOKIE['remember_login']);
+    	// var_dump(Cookie::get()) ;die;
     	return view('admin/Index/index');
     }
 

@@ -47,7 +47,7 @@ Route::get('/verifyCaptcha','CaptchaController@verifyCaptcha');
 Route::group(['prefix'=>'admin','namespace'=>'Admin','middleware' => 'auth'],function(){
 	//登录
 	Route::get('login','LoginController@login')->name('login');
-	Route::post('doLogin','LoginController@handleLgoin');
+	Route::post('login','LoginController@handleLgoin');
 	Route::match(['get', 'post'],'loginout','LoginController@loginOut');
 
 	//初始化超级管理员
@@ -56,6 +56,10 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin','middleware' => 'auth'],fun
 	//注册
 	Route::get('register','userController@register');
 	Route::post('register','userController@register');
+
+	//忘记密码
+	Route::get('forget_password','userController@forgetPassword');
+	Route::post('update_password','userController@updatePassword');
 
 	//后台首页
 	Route::get('index','IndexController@Index');

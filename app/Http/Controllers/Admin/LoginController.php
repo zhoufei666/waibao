@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Input;
 use Validator;
 use Session;
+use Cookie;
+use Illuminate\Http\Response;
 
 use App\Http\Models\admin\userModel;
 use App\Http\Models\Users;
@@ -19,6 +21,12 @@ class LoginController extends Controller {
 	 */
 	public function login(Request $request)
 	{
+		//记住登录登陆判断
+		$remember_login = isset($_COOKIE['remember_login'])?$_COOKIE['remember_login']:'';
+		if (Session::get('uid','') && $remember_login ) {
+			return redirect('admin/index');
+		}
+		
 		return view('admin/login');
 	}
 
@@ -56,17 +64,18 @@ class LoginController extends Controller {
 			    	$userModel = new userModel();
 
 			    	// 验证用户信息
-			    	$user = $userModel->verifyUserInfo($request);			    	
+			    	$user = $userModel->verifyUserInfo($request);		    	
 
 			    	if ($user) {	
 			    		   		
-				    	//是否记住登录登录
+				    	//是否记住登录登录--有效期7天
 				    	if (Input::get('remember')) {
-				    		if ($request->session()->has('uremember_login')) {
-							    $request->session()->put('remember_login', 1);
-							}
-							$request->session()->put('remember_login', 1);
-							$this->remember_login = 1;
+				    		setcookie('remember_login',200,time()+7*24*60*60,'/',env('HOST_NAME'));
+				    		// dd(Input::get('remember'));
+				    		// Cookie::make('remember_login', 1, 7*24*60*60,'/',env('HOST_NAME'));
+							// Cookie::queue('remember_login', 1, 7*24*60,'/',env('HOST_NAME'));							
+							// cookie('remember_login', 1, 7*24*60,'/',env('HOST_NAME'));
+							// dd(Cookie::get('remember_login'));
 				    	}
 
 				    	//登录后续操作
@@ -105,6 +114,9 @@ class LoginController extends Controller {
 	{
 		Session::forget('uid');
 		Session::forget('user_name');
+		Cookie::forget('remember_login');
+		setcookie('remember_login',"",time()-7*24*60*60,'/',env('HOST_NAME'));
+
 		if ($request->isMethod('get')) {
 			return redirect('admin/login');
 		}
