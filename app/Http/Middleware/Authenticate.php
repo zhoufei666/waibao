@@ -28,7 +28,8 @@ class Authenticate
         if (strstr($currentActin['controller'],'Admin')){
 
             //后台
-            if ($currentActin['method'] != 'login'){
+            $except_action = array('handleLgoin','login','loginout');//不需要验证登录的控制器
+            if ( !in_array( $currentActin['method'],$except_action) ){
                 // 判断用户是否登录--未登陆跳转页面
                 $uid = $admin->isLogin();
                 if ($uid === false) {

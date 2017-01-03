@@ -16,7 +16,6 @@
 
     <link rel="stylesheet" type="text/css" href="{{asset('assets/admin/css/animate.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/admin/css/style.css?v=2.2.0')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/admin/css/login.css')}}">
 
 </head>
 
@@ -25,12 +24,12 @@
     <div class="middle-box text-center loginscreen  animated fadeInDown">
         <div>
             <div>
-                <h3 class="logo-name"> 管理系统 </h3>
+                <h3 class="logo-name"> 修改密码 </h3>
             </div>
 
             <h3>欢迎使用 </h3>
 
-            <form action="{{ url('admin/login') }}" method="post" class="form-horizontal" validate='true'>
+            <form action="{{ url('admin/update_password') }}" method="post" class="form-horizontal" validate='true'>
                 <div class="form-group">
                     <input type="text" name='username' class="form-control required" placeholder="用户名" required="">
                 </div>
@@ -42,15 +41,9 @@
                     <img src="" onclick="re_captcha()" class="form-control half-width pointer" id="captcha" style="padding: 2px;">
                     
                 </div>
-                <div class="form-group">
-                    <input type="checkbox" name="remember" value="1" id='remember' class="remember">
-                    <label for="remember">记住登录</label>
-                </div>
-                <button type="submit" class="btn btn-primary block full-width m-b ajax-post " target-form='form-horizontal'>登 录</button>
+                <button type="submit" class="btn btn-primary block full-width m-b ajax-post " target-form='form-horizontal'>修 改</button>
                 <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 
-                <p class="text-muted text-center"> <a href="forget_password"><small>忘记密码了？</small></a> | <a href="register.html">注册一个新账号</a>
-                </p>
 
             </form>
         </div>
