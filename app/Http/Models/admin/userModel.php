@@ -18,9 +18,9 @@ class userModel extends adminModel
 	 */
 	public function register(Request $request)
 	{	
-		$salt = rand(1,999999);
+		$salt = rand(10000,999999);
 
-		$data['name'] = $request->input('name');	
+		$data['user_name'] = 'sy_'.rand(99999,10000);	
 		$data['email'] = $request->input('email');
 		$data['password'] = md5($salt.$request->input('password'));
 		$data['created_at'] = date('Y-m-d H:i:s',time());
@@ -31,7 +31,7 @@ class userModel extends adminModel
 		$data['enable'] = $request->input('enable')?$request->input('enable'):0;
 		$data['salt'] = $salt;
 		
-		return $this->insertGetId($data);
+		return DB::table($this->table)->insertGetId($data);
 	}
 
 	/**

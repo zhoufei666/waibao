@@ -1,10 +1,16 @@
 @extends('Public.Home.common')
 
 @section('css')
-	<link rel="stylesheet" type="text/css" href="{{asset('assets/Common/Css/register.css')}}">
-@stop
+	<!-- 手机端样式 -->
 
+   	<!-- 小屏幕 -->
+	<link rel="stylesheet" media="screen and (min-width:300px) and (max-device-width:800px)" href="{{asset('assets/Common/Css/register_min.css')}}"/>
+
+
+   	<!-- 手机端样式 -->
+@stop
 @section('content')
+
 	<div class="content">
 		<div class="login">
 			<div class="ad">
@@ -32,14 +38,33 @@
 						</div>
 
 						<div>
-							<label for="invite_number" class="login-title "  >邀请码:</label>
+							<label for="invite_number" class="login-title "  >邀请码(选填):</label>
 							<input type="invite_number" name="invite_code" id="passwrod" class="login-item  " minlength="6" placeholder="请输入邀请码 - 拥有更多特权">
+						</div>
+
+						<div>
+							<label for="invite_number" class="login-title "  >验证码:</label>
+							<input type="verify_code" name="verify_code" id="verify_code" class="login-item login-item-half   placeholder="请输入验证码">
+							<img src="{!! captcha_src()!!}" class="verify_img" alt="" onclick="this.src='{!! captcha_src()!!}'+'&'+Math.random()">
+							
 						</div>
 
 
 						<div class="remember">
 							<input type="checkbox" name="login_in" id="remember" class="remember-check remember">
 							<label for="remember" class="remember-login remember">注册成功立即登录</label>
+						</div>
+
+						<div class="remember">
+						@if (count($errors) > 0)
+						    <div class="alert alert-danger">
+						        <ul>
+						            @foreach ($errors->all() as $error)
+						                <li>{{ $error }}</li>
+						            @endforeach
+						        </ul>
+						    </div>
+						@endif
 						</div>
 						
 
@@ -70,7 +95,10 @@
 			</div>
 		</div>			
 	</div>
+
+
 @stop
+
 @section('script')
 	<link rel="stylesheet" type="text/css" href="{{asset('assets/Common/validate/validate.css')}}">
 	<!-- <script type="text/javascript" src="{{asset('assets/Common/validate/jquery-validate.min.js')}}"></script>

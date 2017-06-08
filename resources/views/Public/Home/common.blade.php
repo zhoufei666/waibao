@@ -5,12 +5,19 @@
 	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
 	<!-- 设置 meta 属性为 user-scalable=no 可以禁用其缩放（zooming）功能
 	禁用缩放功能后，用户只能滚动屏幕，就能让你的网站看上去更像原生应用的感觉 -->
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,user-scalable=no">
 	<meta name="keywords" content="周飞,摄影,交易" />
 	<title>飞毛腿-摄影</title>
 
-   	<link rel="stylesheet" type="text/css" href="{{asset('assets/Common/Css/basic.css')}}">
    	<link rel="stylesheet" href="{{asset('assets/Common/font-awesome/css/font-awesome.min.css')}}" >
+
+   	<!-- 手机端样式 -->
+
+   	<!-- 小屏幕 -->
+	<link rel="stylesheet" media="screen and (min-width:300px) and (max-device-width:800px)" href="{{asset('assets/Common/Css/basic_min.css?v=2')}}"/>
+
+
+   	<!-- 手机端样式 -->
 
    	<!-- 新 Bootstrap 核心 CSS 文件 -->
 	<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">

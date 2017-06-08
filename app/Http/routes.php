@@ -19,12 +19,12 @@ Route::get('/', function () {
 //前端路由
 Route::group(['prefix'=>'home','namespace'=>'Home'],function(){
 	//登录
-	Route::get('login','userController@login');
-	Route::post('login','userController@login');
+	Route::get('login','loginController@login');
+	Route::post('login','loginController@login');
 
 	//注册
-	Route::get('register','userController@register');
-	Route::post('register','userController@register');
+	Route::get('register','loginController@showRegister');
+	Route::post('register','loginController@register');
 
 	//用户中心
 	Route::get('/','indexController@index');

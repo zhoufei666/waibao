@@ -45,20 +45,19 @@ class Users extends homeModel
 
 	/**
 	 * 注册插入数据库
-	 * 返回新增id
 	 */
 	public function register($request)
 	{	
-		$data['name'] = '新会员';	
+		$data['user_name'] = 'sy_'.rand(99999,10000);	
 		$data['email'] = Input::get('email');
 		$data['password'] = md5($this->salt.$request->get('password'));
 		$data['created_at'] = time();
 		$data['updated_at'] = time();
-		$data['invite_code_id'] = Input::get('invite_code_id');//明天来弄这个邀请码的事情，
+		$data['invite_code'] = Input::get('invite_code');//明天来弄这个邀请码的事情，
 		$data['last_login_ip'] = Request()->getClientIp();
 		$data['last_login_time'] = time();
 		
-		return $this->insertGetId($data);
+		return DB::table('users')->insertGetId($data);
 	}
 
 	/**

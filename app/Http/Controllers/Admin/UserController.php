@@ -87,7 +87,7 @@ class userController  extends AdminController {
 			 
 			    } else {
 			        // 验证失败
-			        $msg = $this->errorMessageArrayToString($validator->messages());
+			        $msg = $validator->messages()
 			        $url = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REDIRECT_URL'];
 			        $this->ajaxReturn(array('status'=>0,'info'=>$msg,'url'=>$url));
 			    }

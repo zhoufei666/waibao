@@ -1,0 +1,158 @@
+.full_content {
+    min-height: 1rem;
+}
+
+.contenter {
+    width: 100%;
+    min-height: 8rem;
+    background-color: #00f;
+}
+
+
+.login {
+    width: 100%;
+    min-height: 15rem;
+    border-radius: 1rem;
+}
+
+
+.login-form {
+    min-height: 6rem;
+    width: 100%;
+}
+
+.area { 
+    background-color: #eee;
+    border-radius: 10px;
+    width: 100%;
+    min-height: 25rem;
+    margin: 0;
+}
+
+.login-tip {
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    background-color: #ccc;
+}
+
+.tip-top {
+    border-radius:  1rem  1rem 0 0;
+    padding-left: 10px;
+}
+
+.tip-top i {
+    margin-top: 1rem;
+    display: block;
+    float: left;
+}
+
+.tip-top span {
+    display: block;
+    float: left;
+    margin-top: 0.5rem;
+}
+
+.login-title {
+    display: block;
+    width: 90%;
+    margin-left: 5%;
+    height: 2rem;
+    line-height: 2.5rem;
+    margin-top: 0.5rem;
+}
+
+.login-item {
+    width: 90%;
+    margin-right: 5%;
+    margin-left: 5%;
+    height: 3rem;
+    line-height: 3rem;
+    border: 0px;
+    border-radius: 0.5rem;
+    padding-left: 0.5rem;
+}
+
+.login-item-half {
+    width: 45%;
+    margin-right: 5%;
+    margin-left: 5%;
+    height: 3rem;
+    line-height: 3rem;
+    border: 0px;
+    float: left;
+    border-radius: 0.5rem;
+    padding-left: 0.5rem;
+}
+
+.verify_img{
+    width: 38%;
+    height: 3rem;
+}
+
+.login-submit {
+    width: 90%;
+    height: 3rem;
+    line-height: 3rem;
+    text-align: center;
+    color: #fff;
+    margin-right: 5%;
+    margin-left: 5%;
+    border-radius: 1rem;
+    background-color: #00aaee;
+}
+
+.remember {
+    height: 2rem;
+    margin-top: 1rem;
+    margin-left: 1.4rem;
+}
+
+.remember-check {
+    width: 1.0rem;
+    float: left;
+    height: 1.2rem;
+    display: inline;
+}
+
+.remember-login {
+    display: inline;
+    width: 15rem;
+    line-height: 1.9rem;
+    font-size: 1rem;
+    float: left;
+    margin-top: 0;
+}
+
+.login-tip-something {
+    width: 100%;
+    height: 2rem;
+    margin-top: 2rem;
+    padding-bottom: 4rem;
+    font-size: 1rem;
+}
+
+
+.forget-password {
+    width: 50%;
+    height: 100%;
+    padding-left: 2rem;
+    display: inline;
+}
+
+.no-account {
+    width: 50%;
+    height: 100%;
+    padding-right: 2rem;
+    float: right;
+    text-align: right;
+    display: inline;
+}
+
+.third-login {
+    display: none;
+}
+
+.ad {
+        display: none;
+    }

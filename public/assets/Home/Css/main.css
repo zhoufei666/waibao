@@ -30,6 +30,8 @@ a:hover{
 
 #wrap {
   width: 100%;
+  min-height: 60rem;
+  overflow: hidden;
   padding: 0px;
   text-align: center;
 }

@@ -136,8 +136,6 @@ samp {
 /*zhoufei-set*/
 .full-content{    
     width: 100%;
-    min-height: 600px;
-    overflow: hidden;
     background-color: #f6f6f6;  
     margin-top: -20px;
     margin-bottom: -30px; 

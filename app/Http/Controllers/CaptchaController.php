@@ -4,6 +4,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
+use Session;
 
 class CaptchaController extends Controller {
 	/**
@@ -20,21 +21,27 @@ class CaptchaController extends Controller {
 	 */
 	public function getCaptchaSrc(Request $request)
 	{
-		$type = $request->get('imgType','default');		
-        return captcha_src($type);
+		$type = $request->get('imgType','default');	
+		$src = captcha_src($type);
+        return $src;
 	}
 
 	/**
 	 * 检查验证码
 	 * @param string $captcha 验证码
 	 */
-	public function verifyCaptcha(Request $request)
+	public function verifyCaptcha($captcha_text = '')
 	{
-		$captcha_text = $request->input('captcha');
 		if ($captcha_text == '') {
 			return  false;
 		}
-		return captcha_check($captcha_text);
+		$captcha = Session::get('captcha');
+		if (!$captcha || $captcha_text != $captcha) {
+			return false;
+		}else{
+			return true;
+		}
+		// return captcha_check($captcha_text);
 	}
 
 
