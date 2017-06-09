@@ -35,13 +35,8 @@ class CaptchaController extends Controller {
 		if ($captcha_text == '') {
 			return  false;
 		}
-		$captcha = Session::get('captcha');
-		if (!$captcha || $captcha_text != $captcha) {
-			return false;
-		}else{
-			return true;
-		}
-		// return captcha_check($captcha_text);
+
+        return captcha_check($captcha_text);
 	}
 
 

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\CaptchaController;
+use App\Http\Controllers\Home\mailController;
 
 
 // zhoufei set
@@ -121,7 +122,7 @@ class loginController extends Controller
 				// 开始验证
 			    $validator = Validator::make(Input::all(), $rules, $messages);
 			    
-			    $url = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REDIRECT_URL'];//前一次url
+			    $url = 'http://'.$_SERVER['HTTP_HOST'].'/home/register';//回调地址
 
 			    if ($validator->passes()) {
 
@@ -137,16 +138,10 @@ class loginController extends Controller
 			    	}
 
 			    	//判断验证码
-			    	// $captcha = new CaptchaController();
-			    	// if (!$captcha->verifyCaptcha(Input::get('verify_code'))){
-			    	// 	die;
-			    	// 	$this->ajaxReturn(array('status'=>0,'info'=>'请正确填写验证码','url'=>$url));
-        //                 // return response()->withInput($request->all())->withErrors('请正确填写验证码');
-        //           //        return redirect()
-		      //           // ->back()
-		      //           // ->withErrors($validator)
-		      //           // ->withInput();
-			    	// }
+			    	 $captcha = new CaptchaController();
+			    	 if (!$captcha->verifyCaptcha(Input::get('verify_code'))){
+                         $this->ajaxReturn(array('status'=>0,'info'=>'验证码错误','url'=>$url));
+			    	 }
 			    				    	
 			    	// 插入数据库操作
 			    	$new_uid = $users->register($request);
@@ -165,6 +160,10 @@ class loginController extends Controller
 							$request->session()->put('uid', $new_uid);
 				    	}
 				    	//发送验证邮箱
+                        $email = new mailController();
+			    		$email_body['register_password'] = Input::get('password');
+			    		$email->send_email(Input::get('email'),'恭喜注册成功',$email_body);
+
 
 			    		$this->ajaxReturn(array('status'=>200,'info'=>'注册成功'.$invite_code_veriry_msg,'url'=>$url));
 			    	}else{
@@ -175,7 +174,6 @@ class loginController extends Controller
 			    } else {
 			        // 验证失败
 			        $msg = $this->errorMessageToString($validator->messages());
-			        $url = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REDIRECT_URL'];
 			        $this->ajaxReturn(array('status'=>0,'info'=>$msg,'url'=>$url));
 
 			        // return Redirect::back()->withInput()->withErrors($validator);
