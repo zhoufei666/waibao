@@ -51,7 +51,7 @@
 
 
 						<div class="remember">
-							<input type="checkbox" name="login_in" id="remember" class="remember-check remember">
+							<input type="checkbox" name="login_in" value="1"  id="remember" class="remember-check remember">
 							<label for="remember" class="remember-login remember">注册成功立即登录</label>
 						</div>
 

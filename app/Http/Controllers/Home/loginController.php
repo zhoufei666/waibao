@@ -89,7 +89,7 @@ class loginController extends Controller
 	 * 注册页面
 	 */
 	public function showRegister(Request $request)
-	{
+	{ 
 			return view('Home.Login.register');				
 	}
 
@@ -148,21 +148,23 @@ class loginController extends Controller
 
 			    	if ($new_uid) {
 			    		$url = 'http://'.$_SERVER['HTTP_HOST'];
-			    		if (Input::get('login_in')) {
-			    			$url = url('home/user');
+			    		$login_in = Input::get('login_in',0);
+			    		if ($login_in) {
+			    			$url .= '/home';
 			    		}
 
+
 				    	//是否自动登录
-				    	if (Input::get('login_in')) {
+				    	if ($login_in) {
 				    		if ($request->session()->has('uid')) {
 							    $request->session()->put('uid', $new_uid);
 							}
 							$request->session()->put('uid', $new_uid);
 				    	}
-				    	//发送验证邮箱
-                        $email = new mailController();
-			    		$email_body['register_password'] = Input::get('password');
-			    		$email->send_email(Input::get('email'),'恭喜注册成功',$email_body);
+				    	// //发送验证邮箱
+         //                $email = new mailController();
+			    		// $email_body['register_password'] = Input::get('password');
+			    		// $email->send_email(Input::get('email'),'恭喜注册成功',$email_body);
 
 
 			    		$this->ajaxReturn(array('status'=>200,'info'=>'注册成功'.$invite_code_veriry_msg,'url'=>$url));
