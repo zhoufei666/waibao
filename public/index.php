@@ -19,10 +19,7 @@
 |
 */
 
-// require __DIR__.'/../bootstrap/autoload.php';//本地
-
-
-require __DIR__.'/www/bootstrap/autoload.php';//虚拟机部署
+require __DIR__.'/../bootstrap/autoload.php';//本地
 
 /*
 |--------------------------------------------------------------------------
@@ -36,9 +33,7 @@ require __DIR__.'/www/bootstrap/autoload.php';//虚拟机部署
 |
 */
 
-// $app = require_once __DIR__.'/../bootstrap/app.php ';//本地
-
-$app = require_once __DIR__.'/www/bootstrap/app.php ';//虚拟机部署
+$app = require_once __DIR__.'/../bootstrap/app.php ';//本地
 
 /*
 |--------------------------------------------------------------------------
