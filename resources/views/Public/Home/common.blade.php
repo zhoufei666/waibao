@@ -14,7 +14,7 @@
    	<!-- 手机端样式 -->
 
    	<!-- 小屏幕 -->
-	<link rel="stylesheet" media="screen and (min-width:300px) and (max-device-width:800px)" href="{{asset('assets/Common/Css/basic_min.css?v=2')}}"/>
+	<link rel="stylesheet" media="screen and (min-width:300px) and (max-device-width:800px)" href="{{asset('assets/Common/Css/basic_min.css?v=3')}}"/>
 
 
    	<!-- 手机端样式 -->

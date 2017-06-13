@@ -63,6 +63,10 @@
 
 /*网站主要介绍/banner图  结束 */
 
+.full_content {
+    min-height: 1rem;
+}
+
 /*footer */
 .footer{
 	width: 100%;
